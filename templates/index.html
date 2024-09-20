@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="text-center mt-5">
+    <h1 class="display-4">Welcome to Music Database</h1>
+    <p class="lead">An easy way to search and organize music.</p>
+    <a href="{{ url_for('search_song') }}" class="btn btn-primary btn-lg">Start Searching</a>
+</div>
+{% endblock %}

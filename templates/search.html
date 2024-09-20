@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Search for a Song</h2>
+    <form method="POST" action="{{ url_for('search_song') }}" class="mb-5">
+        <div class="input-group">
+            <input type="text" class="form-control" name="query" placeholder="Enter song name" required>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+
+    <!-- Search Results Section -->
+    <h2 class="mb-4">Search Results</h2>
+    {% if songs %}
+        <ul class="list-group">
+            {% for song in songs %}
+                <li class="list-group-item">
+                    <strong>{{ song.track_name }}</strong> by <em>{{ song.artist_name }}</em>
+                    {% if song.preview_url != "No preview available" %}
+                        <audio controls class="mt-2">
+                            <source src="{{ song.preview_url }}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    {% else %}
+                        <span class="text-muted">{{ song.preview_url }}</span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="text-muted">No results found.</p>
+    {% endif %}
+</div>
+{% endblock %}

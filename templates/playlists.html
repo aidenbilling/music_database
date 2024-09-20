@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Create Playlist Section -->
+    <h2 class="mb-4">Create a New Playlist</h2>
+    <form method="POST" action="{{ url_for('create_playlist') }}" class="mb-5">
+        <div class="mb-3">
+            <label for="playlist_name" class="form-label">Playlist Name</label>
+            <input type="text" id="playlist_name" name="playlist_name" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Create Playlist</button>
+    </form>
+
+    <!-- User's Playlists Section -->
+    <h2 class="mb-4">Your Playlists</h2>
+    <ul class="list-group mb-5">
+        {% for playlist in playlists %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="{{ url_for('view_playlist', playlist_id=playlist.playlist_id) }}">{{ playlist.playlist_name }}</a>
+                <form method="POST" action="{{ url_for('delete_playlist', playlist_id=playlist.playlist_id) }}" style="display:inline;">
+                    <button type="submit" class="btn btn-sm btn-danger" title="Delete Playlist">X</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Link to Add Songs Section -->
+    <h2 class="mb-4">Add Songs to Playlist</h2>
+    <a href="{{ url_for('user_songs') }}" class="btn btn-success">View Your Saved Songs</a>
+</div>
+{% endblock %}

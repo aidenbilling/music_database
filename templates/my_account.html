@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>My Account</h2>
+<p>Username: {{ user.username }}</p>
+<p>Email: {{ user.email }}</p>
+<p>Registered on: {{ user.registration_date | format_date }}</p>
+<a href="{{ url_for('logout') }}">Logout</a>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>Add Songs to Playlist</h2>
+<ul>
+    {% for song in songs %}
+        <li>
+            {{ song.track_name }} by {{ song.artist_name }}
+            <form action="{{ url_for('add_songs_to_playlist') }}" method="POST">
+                <input type="hidden" name="song_id" value="{{ song.song_id }}">
+                <select name="playlist_id" required>
+                    <option value="" disabled selected>Select a playlist</option>
+                    {% for playlist in playlists %}
+                        <option value="{{ playlist.playlist_id }}">{{ playlist.playlist_name }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit">Add to Playlist</button>
+            </form>
+        </li>
+    {% else %}
+        <li>No saved songs available.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
