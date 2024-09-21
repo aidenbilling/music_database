@@ -3,8 +3,8 @@ This is a basic database which pulls from the Spotify Web API and stores songs t
 
 ## Installation
 ### Virtual Environment
-Virtualenv must be installed, create a virtual environment in the app directory, everything will be installed with the virtual environment.
-
+Virtualenv must be installed, create a virtual environment in the app directory, everything will be installed with the virtual environment. <br />
+<br />
 To create the environment, run this command in bash:
 ```
 $ virtualenv venv
@@ -18,14 +18,9 @@ Or this command if on Linux/Mac system:
 $ source venv/bin/activate
 ```
 
-### Pip
-Pip will be used for the dependencies.
-
-### Flask
-This app makes use of the flask framework for python.
-
-### Sqlite 3
-If not already included with python make sure this is installed.
-
-### Spotipy
-This app requires spotipy to pull data from Spotify's API
+### Requirements
+Pip will be used for installtion of the dependencies, the following will need to be installed onto the virtual environment. <br />
+<br />
+* Flask 3.03
+* Pysqlite3 0.5.3
+* Spotipy 2.24.0
