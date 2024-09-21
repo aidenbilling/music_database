@@ -1,5 +1,19 @@
 # Music Database
+## Table of Contents
+* [General Info](#general-info)
+* [Technologies](#technologies)
+* [Installation](#installation)
+
+## General Info
 This is a basic database which pulls from the Spotify Web API and stores songs that the user wants to be organised using databases.
+
+## Technologies
+Project is created with:
+* Python 3.12.6
+* Flask 3.03
+* Bootstrap 4
+* Spotipy Web API
+* Sqlite3
 
 ## Installation
 ### Virtual Environment
@@ -19,8 +33,7 @@ $ source venv/bin/activate
 ```
 
 ### Requirements
-Pip will be used for installtion of the dependencies, the following will need to be installed onto the virtual environment. <br />
-<br />
+Pip will be used for installtion of the dependencies, the following will need to be installed onto the virtual environment: <br />
 * Flask 3.03
 * Pysqlite3 0.5.3
 * Spotipy 2.24.0
